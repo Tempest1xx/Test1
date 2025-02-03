@@ -3,109 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javed ❤️ Jaweria's Strawberry Valentine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+    <title>Javed ❤️ Jaweria - Be My Valentine!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Chewy&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --pink: #ff9eb5;
+            --red: #ff6b6b;
+            --heart: #ff3f3f;
+        }
+
         body {
-            font-family: 'Chewy', cursive;
-            background: #ffd1dc;
+            font-family: 'Pacifico', cursive;
+            background: linear-gradient(135deg, #ffd1dc, #ff9eb5);
             height: 100vh;
             margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            perspective: 1000px;
+            position: relative;
         }
 
-        /* 3D Strawberries */
-        .strawberry {
+        /* Floating background elements */
+        .floating-heart {
             position: absolute;
-            font-size: 150px;
-            animation: float 6s ease-in-out infinite;
-            filter: drop-shadow(0 10px 20px rgba(255, 105, 180, 0.3));
+            font-size: 30px;
+            animation: float 8s linear infinite;
+            opacity: 0.3;
             z-index: 0;
-            pointer-events: none;
         }
 
-        .strawberry::before {
-            content: "🍓";
+        .floating-strawberry {
             position: absolute;
-            animation: rotate3D 8s linear infinite;
-        }
-
-        .strawberry::after {
-            content: "";
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: #8bc34a;
-            border-radius: 50% 50% 0 0;
-            transform: rotate(45deg);
-            top: -30px;
-            left: 50%;
-            margin-left: -10px;
+            font-size: 50px;
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 5px 5px rgba(255, 105, 180, 0.3));
+            z-index: 1;
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-30px); }
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
         }
 
-        @keyframes rotate3D {
-            0% { transform: rotateY(0deg) rotateZ(0deg); }
-            100% { transform: rotateY(360deg) rotateZ(5deg); }
-        }
-
-        /* Position strawberries */
-        .strawberry:nth-child(1) { left: 10%; top: 20%; font-size: 200px; }
-        .strawberry:nth-child(2) { left: 70%; top: 60%; }
-        .strawberry:nth-child(3) { left: 30%; top: 80%; font-size: 180px; }
-
-        /* Main container */
-        .container {
-            background: rgba(255, 255, 255, 0.9);
+        /* Main card */
+        .valentine-card {
+            background: rgba(255, 255, 255, 0.95);
             padding: 2rem;
             border-radius: 20px;
-            box-shadow: 0 0 30px rgba(255, 105, 180, 0.2);
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
             text-align: center;
             position: relative;
             z-index: 2;
-            border: 4px solid #ff69b4;
+            border: 3px solid var(--red);
             transform-style: preserve-3d;
+            max-width: 500px;
         }
 
         h1 {
-            color: #ff3366;
-            font-size: 3rem;
-            margin: 1rem 0;
+            color: var(--red);
+            font-size: 2.5em;
+            margin: 0 0 1rem 0;
             text-shadow: 2px 2px 0px white;
         }
 
-        .buttons {
-            margin: 2rem 0;
-            position: relative;
-            min-height: 100px;
+        .message {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 2rem;
         }
 
-        #yesButton {
-            font-size: 1.8rem;
-            padding: 1rem 2rem;
+        .buttons {
+            position: relative;
+            min-height: 100px;
+            margin: 2rem 0;
+        }
+
+        /* Yes button */
+        #yesBtn {
+            font-family: 'Chewy', cursive;
+            font-size: 1.5em;
+            padding: 15px 40px;
             border: none;
-            border-radius: 20px;
-            background: linear-gradient(45deg, #ff3366, #ff69b4);
+            border-radius: 30px;
+            background: linear-gradient(45deg, var(--red), var(--pink));
             color: white;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 51, 102, 0.3);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
         }
 
-        #noButton {
+        #yesBtn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+        }
+
+        /* No button */
+        #noBtn {
             position: absolute;
-            font-size: 1.8rem;
-            padding: 1rem 2rem;
+            font-family: 'Chewy', cursive;
+            font-size: 1.5em;
+            padding: 15px 40px;
             border: none;
-            border-radius: 20px;
+            border-radius: 30px;
             background: linear-gradient(45deg, #ff99cc, #ffb6c1);
             color: white;
             cursor: not-allowed;
@@ -113,54 +113,110 @@
             user-select: none;
             box-shadow: 0 5px 15px rgba(255, 153, 204, 0.3);
         }
+
+        /* Music player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            color: var(--red);
+            font-size: 1.2em;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
     </style>
 </head>
 <body>
-    <!-- 3D Strawberries -->
-    <div class="strawberry"></div>
-    <div class="strawberry"></div>
-    <div class="strawberry"></div>
+    <!-- Background elements -->
+    <div class="floating-heart" style="left:10%">💖</div>
+    <div class="floating-strawberry" style="left:20%">🍓</div>
+    <div class="floating-heart" style="left:30%">💗</div>
+    <div class="floating-strawberry" style="left:80%">🍓</div>
 
-    <div class="container">
-        <h1>Jaweria,<br>Will You Be My<br>Sweet Strawberry Forever? 🍓💖</h1>
+    <!-- Main card -->
+    <div class="valentine-card">
+        <h1>Jaweria, My Sweet Strawberry 🍓</h1>
+        <p class="message">
+            You're the sugar to my tea,<br>
+            The star to my night sky,<br>
+            Will you be my Valentine<br>
+            And make my heart fly high? 💘
+        </p>
+        
         <div class="buttons">
-            <button id="yesButton">YES! 💕</button>
-            <button id="noButton">NO 🙈</button>
+            <button id="yesBtn">Yes, My Love! 💖</button>
+            <button id="noBtn">Not a Chance! 😜</button>
         </div>
+        
+        <div class="music-player">🎵 Click anywhere for music!</div>
     </div>
 
     <script>
-        const noButton = document.getElementById('noButton');
+        // Animated "No" button movement
+        const noBtn = document.getElementById('noBtn');
         let angle = 0;
         const radius = 150;
 
         function moveButton() {
-            angle += Math.PI / 8;
+            angle += Math.PI / 16;
             const x = Math.cos(angle) * radius;
             const y = Math.sin(angle) * radius;
             
-            noButton.style.transform = `
+            noBtn.style.transform = `
                 translate(${x}px, ${y}px)
-                rotate(${angle * 10}deg)
+                rotate(${angle * 15}deg)
                 scale(${0.9 + Math.sin(angle) * 0.1})
             `;
             
             requestAnimationFrame(moveButton);
         }
-
-        // Start continuous movement
         moveButton();
 
-        // Make unclickable
-        noButton.addEventListener('mousedown', (e) => {
+        // Make "No" button unclickable
+        noBtn.addEventListener('mousedown', (e) => {
             e.preventDefault();
             e.stopPropagation();
+            noBtn.style.transform += ' scale(0.9)';
         });
 
         // Yes button response
-        document.getElementById('yesButton').addEventListener('click', () => {
-            alert("🍓 YAY! Our love is sweeter than strawberries!\nYou've made my heart do backflips! 💖");
+        document.getElementById('yesBtn').addEventListener('click', () => {
+            // Add falling hearts animation
+            for(let i = 0; i < 50; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
+                heart.textContent = '💖';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 5000);
+            }
+
+            // Show message
+            alert("🎉 Hooray! You've filled my heart with sweetness!\nLet's make forever our new adventure! 💞🍓");
         });
+
+        // Music system
+        const audio = new Audio('https://assets.mixkit.co/music/preview/mixkit-romantic-christmas-679.mp3');
+        audio.loop = true;
+        document.addEventListener('click', () => {
+            audio.play().catch(() => {});
+            document.querySelector('.music-player').remove();
+        }, { once: true });
+
+        // Falling hearts animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                0% { transform: translateY(-100vh) rotate(0deg); }
+                100% { transform: translateY(100vh) rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
