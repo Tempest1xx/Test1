@@ -6,217 +6,50 @@
     <title>Javed ❤️ Jaweria - Be My Valentine!</title>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Chewy&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --pink: #ff9eb5;
-            --red: #ff6b6b;
-            --heart: #ff3f3f;
-        }
-
-        body {
-            font-family: 'Pacifico', cursive;
-            background: linear-gradient(135deg, #ffd1dc, #ff9eb5);
-            height: 100vh;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Floating background elements */
-        .floating-heart {
-            position: absolute;
-            font-size: 30px;
-            animation: float 8s linear infinite;
-            opacity: 0.3;
-            z-index: 0;
-        }
-
-        .floating-strawberry {
-            position: absolute;
-            font-size: 50px;
-            animation: float 6s ease-in-out infinite;
-            filter: drop-shadow(0 5px 5px rgba(255, 105, 180, 0.3));
-            z-index: 1;
-        }
-
+        /* (Keep all previous styles except rotation animations) */
+        
         @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(10deg); }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
         }
 
-        /* Main card */
-        .valentine-card {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            border: 3px solid var(--red);
-            transform-style: preserve-3d;
-            max-width: 500px;
-        }
-
-        h1 {
-            color: var(--red);
-            font-size: 2.5em;
-            margin: 0 0 1rem 0;
-            text-shadow: 2px 2px 0px white;
-        }
-
-        .message {
-            font-size: 1.3em;
-            color: #666;
-            margin-bottom: 2rem;
-        }
-
-        .buttons {
-            position: relative;
-            min-height: 100px;
-            margin: 2rem 0;
-        }
-
-        /* Yes button */
-        #yesBtn {
-            font-family: 'Chewy', cursive;
-            font-size: 1.5em;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 30px;
-            background: linear-gradient(45deg, var(--red), var(--pink));
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
-        }
-
-        #yesBtn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
-        }
-
-        /* No button */
         #noBtn {
-            position: absolute;
-            font-family: 'Chewy', cursive;
-            font-size: 1.5em;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 30px;
-            background: linear-gradient(45deg, #ff99cc, #ffb6c1);
-            color: white;
-            cursor: not-allowed;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            user-select: none;
-            box-shadow: 0 5px 15px rgba(255, 153, 204, 0.3);
-        }
-
-        /* Music player */
-        .music-player {
-            position: fixed;
-            bottom: 20px;
-            color: var(--red);
-            font-size: 1.2em;
-            animation: pulse 1s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
     </style>
 </head>
 <body>
-    <!-- Background elements -->
-    <div class="floating-heart" style="left:10%">💖</div>
-    <div class="floating-strawberry" style="left:20%">🍓</div>
-    <div class="floating-heart" style="left:30%">💗</div>
-    <div class="floating-strawberry" style="left:80%">🍓</div>
-
-    <!-- Main card -->
-    <div class="valentine-card">
-        <h1>Jaweria, My Sweet Strawberry 🍓</h1>
-        <p class="message">
-            You're the sugar to my tea,<br>
-            The star to my night sky,<br>
-            Will you be my Valentine<br>
-            And make my heart fly high? 💘
-        </p>
-        
-        <div class="buttons">
-            <button id="yesBtn">Yes, My Love! 💖</button>
-            <button id="noBtn">Not a Chance! 😜</button>
-        </div>
-        
-        <div class="music-player">🎵 Click anywhere for music!</div>
-    </div>
+    <!-- (Keep all HTML elements from previous version) -->
 
     <script>
-        // Animated "No" button movement
+        // Modified movement system without rotation
         const noBtn = document.getElementById('noBtn');
-        let angle = 0;
-        const radius = 150;
+        let posX = 0, posY = 0, velX = 2, velY = 1.5;
 
         function moveButton() {
-            angle += Math.PI / 16;
-            const x = Math.cos(angle) * radius;
-            const y = Math.sin(angle) * radius;
+            const container = document.querySelector('.buttons');
+            const rect = container.getBoundingClientRect();
             
-            noBtn.style.transform = `
-                translate(${x}px, ${y}px)
-                rotate(${angle * 15}deg)
-                scale(${0.9 + Math.sin(angle) * 0.1})
-            `;
+            // Reverse direction at boundaries
+            if(posX + velX > rect.width - 100 || posX + velX < 0) velX *= -1;
+            if(posY + velY > rect.height - 50 || posY + velY < 0) velY *= -1;
+            
+            posX += velX;
+            posY += velY;
+            
+            noBtn.style.transform = `translate(${posX}px, ${posY}px)`;
+            
+            // Random speed changes
+            if(Math.random() < 0.1) velX *= 1.2;
+            if(Math.random() < 0.1) velY *= 1.2;
             
             requestAnimationFrame(moveButton);
         }
+
+        // Start movement
         moveButton();
 
-        // Make "No" button unclickable
-        noBtn.addEventListener('mousedown', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            noBtn.style.transform += ' scale(0.9)';
-        });
-
-        // Yes button response
-        document.getElementById('yesBtn').addEventListener('click', () => {
-            // Add falling hearts animation
-            for(let i = 0; i < 50; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'floating-heart';
-                heart.style.left = Math.random() * 100 + '%';
-                heart.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
-                heart.textContent = '💖';
-                document.body.appendChild(heart);
-                
-                setTimeout(() => heart.remove(), 5000);
-            }
-
-            // Show message
-            alert("🎉 Hooray! You've filled my heart with sweetness!\nLet's make forever our new adventure! 💞🍓");
-        });
-
-        // Music system
-        const audio = new Audio('https://assets.mixkit.co/music/preview/mixkit-romantic-christmas-679.mp3');
-        audio.loop = true;
-        document.addEventListener('click', () => {
-            audio.play().catch(() => {});
-            document.querySelector('.music-player').remove();
-        }, { once: true });
-
-        // Falling hearts animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes fall {
-                0% { transform: translateY(-100vh) rotate(0deg); }
-                100% { transform: translateY(100vh) rotate(360deg); }
-            }
-        `;
-        document.head.appendChild(style);
+        // (Keep rest of the JavaScript the same)
     </script>
 </body>
 </html>
