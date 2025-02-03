@@ -42,8 +42,51 @@ body::before {
     z-index: 1;
 }
 
-/* Keep previous button styles, add this new rule */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ff69b4;
+}
+
+p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.name {
+    color: #ff1493;
+    font-weight: bold;
+}
+
+.buttons {
+    margin-top: 20px;
+    position: relative;
+}
+
+button {
+    font-size: 1.5em;
+    padding: 15px 30px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Pacifico', cursive;
+    background-color: #ff69b4;
+    color: white;
+}
+
+button:hover {
+    background-color: #ff1493;
+    transform: scale(1.05);
+}
+
 #noButton {
-    transition: all 0.3s ease !important;
-    position: static; /* Changed from absolute */
+    position: static;
+}
+
+#response {
+    font-size: 2em;
+    margin-top: 20px;
+    color: #ff69b4;
 }
