@@ -1,7 +1,7 @@
 body {
     font-family: 'Pacifico', cursive;
-    background: linear-gradient(45deg, #ffb6c1, #ffd1dc); /* Soft pink gradient */
-    color: #ff1493; /* Deep pink text */
+    background: linear-gradient(45deg, #ffb6c1, #ffd1dc);
+    color: #ff1493;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,36 +11,35 @@ body {
     overflow: hidden;
 }
 
-/* Strawberry/plushie emoji background overlay */
 body::before {
-    content: "🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓"; /* Strawberry emoji pattern */
+    content: "🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓";
     position: absolute;
-    opacity: 0.1; /* Very subtle */
+    opacity: 0.1;
     font-size: 30px;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    pointer-events: none; /* Allow clicks through the emojis */
+    pointer-events: none;
     line-height: 1.5;
     text-align: center;
 }
 
 .container {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: 2px solid #ff69b4; /* Pink border */
-    position: relative; /* Ensure it stays above the background */
+    border: 2px solid #ff69b4;
+    position: relative;
     z-index: 1;
 }
 
 h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
-    color: #ff69b4; /* Hot pink */
+    color: #ff69b4;
 }
 
 p {
@@ -49,7 +48,7 @@ p {
 }
 
 .name {
-    color: #ff1493; /* Deep pink */
+    color: #ff1493;
     font-weight: bold;
 }
 
@@ -65,32 +64,37 @@ button {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     font-family: 'Pacifico', cursive;
 }
 
 #yesButton {
-    background-color: #ff69b4; /* Hot pink */
+    background-color: #ff69b4;
     color: white;
 }
 
 #yesButton:hover {
-    background-color: #ff1493; /* Deep pink */
+    background-color: #ff1493;
 }
 
 #noButton {
-    background-color: #ff69b4; /* Hot pink */
+    background-color: #ff69b4;
     color: white;
     position: absolute;
-    transition: all 0.5s ease;
+    transition: all 0.3s ease;
 }
 
 #noButton:hover {
-    background-color: #ff1493; /* Deep pink */
+    background-color: #ff1493;
+    /* Move the button randomly when hovered */
+    transform: translate(
+        calc(-50% + (Math.random() * 100 - 50) * 1px),
+        calc(-50% + (Math.random() * 100 - 50) * 1px)
+    );
 }
 
 #response {
     font-size: 2em;
     margin-top: 20px;
-    color: #ff69b4; /* Hot pink */
+    color: #ff69b4;
 }
