@@ -1,0 +1,79 @@
+body {
+    font-family: 'Pacifico', cursive;
+    background-color: #ffd1dc; /* Soft pink background */
+    color: #ff1493; /* Deep pink text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('https://i.imgur.com/3QZQZ9Q.png'); /* Strawberry pattern */
+    background-size: cover;
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #ff69b4; /* Pink border */
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ff69b4; /* Hot pink */
+}
+
+p {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.name {
+    color: #ff1493; /* Deep pink */
+    font-weight: bold;
+}
+
+.buttons {
+    margin-top: 20px;
+    position: relative;
+}
+
+button {
+    font-size: 1.5em;
+    padding: 15px 30px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Pacifico', cursive;
+}
+
+#yesButton {
+    background-color: #ff69b4; /* Hot pink */
+    color: white;
+}
+
+#yesButton:hover {
+    background-color: #ff1493; /* Deep pink */
+}
+
+#noButton {
+    background-color: #ff69b4; /* Hot pink */
+    color: white;
+    position: absolute;
+    transition: all 0.5s ease;
+}
+
+#noButton:hover {
+    background-color: #ff1493; /* Deep pink */
+}
+
+#response {
+    font-size: 2em;
+    margin-top: 20px;
+    color: #ff69b4; /* Hot pink */
+}
