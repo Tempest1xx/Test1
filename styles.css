@@ -7,7 +7,13 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: url('https://i.imgur.com/3QZQZ9Q.png'); /* Strawberry pattern */
+    background-image: url('https://i.imgur.com/3QZQZ9Q.png'); /* Fallback image */
+    background-size: cover;
+}
+
+/* If the above image doesn't work, use this base64-encoded strawberry pattern */
+body {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABmSURBVHgB7dKxCQAgDETRk/23sFAsbARBEPwVZ5fL5XK5XC6Xy+VyuVwul8vlcrlcLpfL5XK5XC6Xy+VyuVwul8vlcrlcLpfL5XK5XC6Xy+VyuVwul8vlcrlcLpfL5XK5XC6Xy+Vy+QN8AQsQZ1kqAAAAAElFTkSuQmCC');
     background-size: cover;
 }
 
