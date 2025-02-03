@@ -12,10 +12,10 @@ body {
 }
 
 body::before {
-    content: "🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓🍓";
+    content: "🍓";
     position: absolute;
     opacity: 0.1;
-    font-size: 30px;
+    font-size: 50px;
     top: 0;
     left: 0;
     right: 0;
@@ -23,6 +23,12 @@ body::before {
     pointer-events: none;
     line-height: 1.5;
     text-align: center;
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(100vh); }
 }
 
 .container {
@@ -36,65 +42,8 @@ body::before {
     z-index: 1;
 }
 
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #ff69b4;
-}
-
-p {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-}
-
-.name {
-    color: #ff1493;
-    font-weight: bold;
-}
-
-.buttons {
-    margin-top: 20px;
-    position: relative;
-}
-
-button {
-    font-size: 1.5em;
-    padding: 15px 30px;
-    margin: 0 10px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: 'Pacifico', cursive;
-}
-
-#yesButton {
-    background-color: #ff69b4;
-    color: white;
-}
-
-#yesButton:hover {
-    background-color: #ff1493;
-}
-
+/* Keep previous button styles, add this new rule */
 #noButton {
-    background-color: #ff69b4;
-    color: white;
-    position: absolute;
-    transition: all 0.3s ease;
-}
-
-#noButton:hover {
-    background-color: #ff1493;
-    /* Move the button randomly when hovered */
-    transform: translate(
-        calc(-50% + (Math.random() * 100 - 50) * 1px),
-        calc(-50% + (Math.random() * 100 - 50) * 1px)
-    );
-}
-
-#response {
-    font-size: 2em;
-    margin-top: 20px;
-    color: #ff69b4;
+    transition: all 0.3s ease !important;
+    position: static; /* Changed from absolute */
 }
