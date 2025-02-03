@@ -6,7 +6,6 @@
     <title>Javed ❤️ Jaweria's Valentine</title>
     <link href="https://fonts.googleapis.com/css2?family=Short+Stack&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
     <style>
-        /* Base styles */
         body {
             font-family: 'Comic Neue', cursive;
             background: #ffe6f0;
@@ -19,54 +18,6 @@
             overflow: hidden;
         }
 
-        /* Background elements */
-        .hearts {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .heart {
-            position: absolute;
-            font-size: 24px;
-            opacity: 0.3;
-            animation: float 8s linear infinite;
-        }
-
-        /* Plushie styling */
-        .plushie {
-            width: 120px;
-            height: 120px;
-            position: absolute;
-            animation: float 6s infinite ease-in-out;
-            background-size: contain;
-            background-repeat: no-repeat;
-            z-index: 2;
-        }
-
-        .plushie.teddy {
-            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIASURBVHgB7ZtRbsMgDEVzxv7/lztPUqVKjQ1YEF4q9ZxKJdgPPwzYkM1mMB6Px+PxeDwej8fj8Xg8Ho/H4/F4PB6Px+Px/ATbtpVt2z4a+4YH8HmKMRYVjDFuYHpYgPz5Wq/X1Yy11vJ4PKqYz+ezPB6PqgVwXddtC6C1+3a73SgBzPOMBdDa/WVZqgVwv99HLAALoKX7y7JgAbR0f71eLIDW7i/LggXQ0v11XbEAWru/LAsWQEv3t23DAmjt/rZtWACt3d/3HQugtfv7vmMBtHZ/33csgNbup5SwAFq7n1LCAqjpfvm3QABN3S8VQFP3SwXQ1P1SATR1v1QATd0vFUBT90sF0NT9UgE0db9UAE3dLxVAU/dLBdDU/VIB1HT/9XpVdf/1emEB1HT/+XxWd//5fGIB1HT/8XhUd//xeGAB1HT/fr9Xd/9+v2MB1HT/drtVd/92u2EB1HT/er1Wd/96vWIB1HT/crlUd/9yuWAB1HT/9/tVd//3+2EB1HT/8/lUd//z+WAB1HT/9XpVd//1emEB1HT/8XhUd//xeGAB1HT/er1Wd/96vWIB1HT/crlUd/9yuWAB1HT/9/tVd//3+2EB1HT/8/lUd//z+WABAAAAAADwH/wBB0mIvr6T2YYAAAAASUVORK5CYII=');
-        }
-
-        .plushie.heart {
-            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF6SURBVHgB7ZtRbsMgDEVzxv7/lztPUqVKjQ1YEF4q9ZxKJdgPPwzYkM1mMB6Px+PxeDwej8fj8Xg8Ho/H4/F4PB6Px+Px/ATbtpVt2z4a+4YH8HmKMRYVjDFuYHpYgPz5Wq/X1Yy11vJ4PKqYz+ezPB6PqgVwXddtC6C1+3a73SgBzPOMBdDa/WVZqgVwv99HLAALoKX7y7JgAbR0f71eLIDW7i/LggXQ0v11XbEAWru/LAsWQEv3t23DAmjt/rZtWACt3d/3HQugtfv7vmMBtHZ/33csgNbup5SwAFq7n1LCAqjpfvm3QABN3S8VQFP3SwXQ1P1SATR1v1QATd0vFUBT90sF0NT9UgE0db9UAE3dLxVAU/dLBdDU/VIB1HT/9XpVdf/1emEB1HT/+XxWd//5fGIB1HT/8XhUd//xeGAB1HT/fr9Xd/9+v2MB1HT/drtVd/92u2EB1HT/er1Wd/96vWIB1HT/crlUd/9yuWAB1HT/9/tVd//3+2EB1HT/8/lUd//z+WAB1HT/9XpVd//1emEB1HT/8XhUd//xeGAB1HT/er1Wd/96vWIB1HT/crlUd/9yuWAB1HT/9/tVd//3+2EB1HT/8/lUd//z+WABAAAAAADwH/wBB0mIvr6T2YYAAAAASUVORK5CYII=');
-        }
-
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(10deg); }
-        }
-
-        @keyframes heart-float {
-            0% { transform: translate(-50%, 100vh) rotate(0deg); opacity: 0; }
-            50% { opacity: 0.4; }
-            100% { transform: translate(50vw, -100vh) rotate(360deg); opacity: 0; }
-        }
-
-        /* Main container */
         .container {
             background: rgba(255, 255, 255, 0.95);
             padding: 2rem;
@@ -74,151 +25,132 @@
             box-shadow: 0 0 30px rgba(255, 153, 204, 0.5);
             text-align: center;
             position: relative;
-            z-index: 3;
+            z-index: 2;
             border: 3px solid #ff99cc;
         }
 
-        /* Text styling */
-        h1 {
-            color: #ff6699;
-            font-family: 'Short Stack', cursive;
-            font-size: 2.5rem;
-            margin: 1rem 0;
-            text-shadow: 2px 2px 0px #ffffff;
-        }
-
-        /* Buttons styling */
         .buttons {
             margin: 2rem 0;
             position: relative;
-            min-height: 60px;
+            min-height: 100px;
+            min-width: 300px;
         }
 
-        button {
+        #yesButton {
             font-size: 1.5rem;
             padding: 1rem 2rem;
             border: none;
             border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Comic Neue', cursive;
-        }
-
-        #yesButton {
             background: #ff6699;
             color: white;
             box-shadow: 0 5px 0 #ff3366;
-        }
-
-        #yesButton:hover {
-            transform: scale(1.1);
-            box-shadow: 0 7px 0 #ff3366;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         #noButton {
+            position: absolute;
+            font-size: 1.5rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 15px;
             background: #ff99cc;
             color: white;
-            position: absolute;
             box-shadow: 0 5px 0 #ff66aa;
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: not-allowed;
+            user-select: none;
         }
 
-        /* Response message */
-        #response {
-            font-size: 1.8rem;
-            color: #ff3366;
-            margin-top: 1rem;
-        }
-
-        /* Music notification */
-        .music-notice {
-            position: fixed;
-            bottom: 20px;
-            color: #ff3366;
-            font-size: 1.2rem;
-            animation: pulse 1s infinite;
-            z-index: 4;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
+        /* Keep previous styling for other elements */
     </style>
 </head>
 <body>
-    <!-- Background elements -->
-    <div class="hearts" id="heartsContainer"></div>
-    <div class="plushie teddy" style="left:10%; top:20%"></div>
-    <div class="plushie heart" style="left:70%; top:60%"></div>
-
-    <!-- Main content -->
     <div class="container">
-        <h1>Jaweria, will you be my<br>Forever Valentine? 💖🧸</h1>
-        
+        <h1>Jaweria, will you be my Valentine? 💖</h1>
         <div class="buttons">
             <button id="yesButton">YES! 🥰</button>
             <button id="noButton">NO 🙈</button>
         </div>
-        <p id="response"></p>
     </div>
 
-    <div class="music-notice">Click anywhere to start music! 🎵</div>
-
     <script>
-        // Initialize background hearts
-        function createHearts() {
-            const heartsContainer = document.getElementById('heartsContainer');
-            for(let i = 0; i < 20; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.style.left = Math.random() * 100 + '%';
-                heart.style.animationDelay = Math.random() * 8 + 's';
-                heart.textContent = '💖';
-                heartsContainer.appendChild(heart);
-            }
-        }
+        const noButton = document.getElementById('noButton');
+        let isMoving = false;
+        const escapeMessages = ["Nope! 😜", "Can't catch me! 🏃♀️", "Too slow! 🐌", "Nice try! 😘"];
 
-        // Enhanced button movement
-        let moveCount = 0;
-        const escapePhrases = ["Nope! ✨", "Too slow! 🐢", "Catch me! 🏃♀️", "Try harder! 💪"];
-        
-        function moveButton() {
-            const button = document.getElementById('noButton');
-            const container = button.parentElement;
-            const containerRect = container.getBoundingClientRect();
+        // Advanced movement system
+        function evadeCursor(e) {
+            if (isMoving) return;
+            isMoving = true;
 
-            const newX = Math.random() * (containerRect.width - button.offsetWidth);
-            const newY = Math.random() * (containerRect.height - button.offsetHeight);
+            const buttonRect = noButton.getBoundingClientRect();
+            const containerRect = noButton.parentElement.getBoundingClientRect();
+            const cursorX = e.clientX;
+            const cursorY = e.clientY;
 
-            button.style.transform = `
+            // Calculate escape direction
+            const angle = Math.atan2(
+                cursorY - (buttonRect.top + buttonRect.height/2),
+                cursorX - (buttonRect.left + buttonRect.width/2)
+            );
+
+            // Move in opposite direction + randomness
+            const moveDistance = 150 + Math.random() * 50;
+            const newX = Math.cos(angle + Math.PI) * moveDistance;
+            const newY = Math.sin(angle + Math.PI) * moveDistance;
+
+            // Apply movement with rotation
+            noButton.style.transform = `
                 translate(${newX}px, ${newY}px)
-                rotate(${Math.random() * 25 - 12.5}deg)
+                rotate(${Math.random() * 20 - 10}deg)
+                scale(${0.9 + Math.random() * 0.2})
             `;
-            button.textContent = escapePhrases[moveCount % escapePhrases.length];
-            moveCount++;
+
+            // Change text randomly
+            if (Math.random() > 0.7) {
+                noButton.textContent = escapeMessages[Math.floor(Math.random() * escapeMessages.length)];
+            }
+
+            // Add trail effect
+            const trail = document.createElement('div');
+            trail.style.position = 'absolute';
+            trail.style.background = 'rgba(255, 153, 204, 0.5)';
+            trail.style.width = '10px';
+            trail.style.height = '10px';
+            trail.style.borderRadius = '50%';
+            trail.style.left = `${buttonRect.left + buttonRect.width/2}px`;
+            trail.style.top = `${buttonRect.top + buttonRect.height/2}px`;
+            document.body.appendChild(trail);
+            
+            setTimeout(() => {
+                trail.remove();
+                isMoving = false;
+            }, 500);
         }
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            createHearts();
-            
-            const noButton = document.getElementById('noButton');
-            noButton.addEventListener('mouseenter', moveButton);
-            noButton.addEventListener('click', moveButton);
+        // Evasion triggers
+        document.addEventListener('mousemove', (e) => {
+            const distanceToButton = Math.hypot(
+                e.clientX - (noButton.getBoundingClientRect().left + noButton.offsetWidth/2),
+                e.clientY - (noButton.getBoundingClientRect().top + noButton.offsetHeight/2)
+            );
+
+            if (distanceToButton < 150) {
+                evadeCursor(e);
+            }
         });
 
-        // Music functionality
-        const music = new Audio('data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4LjI1LjEwNAAAAAAAAAAAAAAA//tQxAADAfwBfAhMIAP/4BcwBAC9jQ1FsYXRhYgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==');
-        music.volume = 0.5;
-        document.addEventListener('click', () => {
-            music.play();
-            document.querySelector('.music-notice').remove();
-        }, { once: true });
+        // Make unclickable
+        noButton.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            evadeCursor(e);
+        });
 
         // Yes button response
         document.getElementById('yesButton').addEventListener('click', function() {
-            document.getElementById('response').innerHTML = "YAY! 🎉<br>You make my heart sparkle! ✨<br>Let's be happy forever! 💞";
+            alert("YAY! 🎉\nYou've made me the happiest person!\nLet's fill every day with love! 💞");
         });
     </script>
 </body>
