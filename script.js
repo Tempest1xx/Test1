@@ -1,36 +1,42 @@
-// Start background music automatically (if allowed by browser)
+// Auto-play music with click fallback
 document.addEventListener('DOMContentLoaded', function() {
-    const music = document.getElementById('backgroundMusic');
-    music.volume = 0.3; // Lower volume for subtlety
-    music.play().catch(() => {
-        // If autoplay is blocked, add a click-to-play button
-        const container = document.querySelector('.container');
-        const playButton = document.createElement('button');
-        playButton.textContent = "Click here to start music 🎵";
-        playButton.style.marginTop = "20px";
-        playButton.onclick = () => music.play();
-        container.appendChild(playButton);
-    });
+    const music = document.getElementById('music');
+    music.volume = 0.3;
+    
+    const playMusic = () => {
+        music.play().catch(() => {
+            document.body.innerHTML += `<div class="music-fallback">Click anywhere to start music! 💖</div>`;
+            document.body.addEventListener('click', () => music.play(), { once: true });
+        });
+    }
+    playMusic();
 });
 
-// Handle "Yes" button click
+// Yes button response
 document.getElementById('yesButton').addEventListener('click', function() {
-    document.getElementById('response').textContent = "Yay! You've made me the happiest person, Jaweria! 💖";
-    document.getElementById('noButton').style.display = 'none'; // Remove the "No" button
+    document.getElementById('response').innerHTML = "YAY! 💖<br>You just made my heart do backflips!";
+    document.getElementById('noButton').remove();
 });
 
-// Make the "No" button move randomly when hovered
-document.getElementById('noButton').addEventListener('mouseover', function() {
-    const noButton = this;
-    const container = document.querySelector('.container');
-    const containerRect = container.getBoundingClientRect();
-
-    // Calculate new random position within the container
-    const maxX = containerRect.width - noButton.offsetWidth;
-    const maxY = containerRect.height - noButton.offsetHeight;
-    const newX = Math.random() * maxX;
-    const newY = Math.random() * maxY;
-
-    noButton.style.left = `${newX}px`;
-    noButton.style.top = `${newY}px`;
+// No button movement magic
+document.getElementById('noButton').addEventListener('mousedown', function(e) {
+    e.preventDefault();
+    const button = this;
+    const container = button.parentElement;
+    
+    // Random angle and distance
+    const angle = Math.random() * Math.PI * 2;
+    const distance = Math.random() * 100 + 50;
+    
+    // Calculate new position
+    const newX = Math.cos(angle) * distance;
+    const newY = Math.sin(angle) * distance;
+    
+    // Apply movement
+    button.style.transform = `translate(${newX}px, ${newY}px)`;
+    
+    // Reset position after 1 second
+    setTimeout(() => {
+        button.style.transform = 'translate(0, 0)';
+    }, 1000);
 });
