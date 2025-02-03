@@ -3,82 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be My Valentine? 💖</title>
+    <title>Javed ❤️ Jaweria's Plushie Valentine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Short+Stack&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
-            background: url('https://i.imgur.com/7gE9Vqy.png'); /* Cute heart background */
-            background-size: cover;
-            background-position: center;
-            text-align: center;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            color: #ff6b81;
+            font-family: 'Comic Neue', cursive;
+            background: #ffe6f0 url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="%23ff99cc" opacity="0.2"/></svg>');
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
             overflow: hidden;
         }
-        .container {
-            margin-top: 100px;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 15px;
-            display: inline-block;
-            box-shadow: 0px 0px 15px pink;
-        }
-        h1 {
-            font-size: 30px;
-        }
-        .plushie {
-            width: 200px;
-            border-radius: 15px;
-        }
-        .buttons {
-            margin-top: 20px;
-        }
-        button {
-            font-size: 18px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .yes {
-            background: pink;
-            color: white;
-            box-shadow: 0px 0px 10px pink;
-        }
-        .yes:hover {
-            background: hotpink;
-        }
-        .no {
-            background: lightgray;
-            color: black;
+
+        .plushies {
             position: absolute;
-            transition: 0.3s ease-in-out;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .plushie {
+            position: absolute;
+            width: 80px;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(255, 153, 204, 0.5);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            border: 3px solid #ff99cc;
+        }
+
+        h1 {
+            color: #ff6699;
+            font-family: 'Short Stack', cursive;
+            font-size: 2.5rem;
+            margin: 1rem 0;
+            text-shadow: 2px 2px 0px #ffffff;
+        }
+
+        .buttons {
+            margin: 2rem 0;
+            position: relative;
+            min-height: 60px;
+        }
+
+        button {
+            font-size: 1.5rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Comic Neue', cursive;
+        }
+
+        #yesButton {
+            background: #ff6699;
+            color: white;
+            box-shadow: 0 5px 0 #ff3366;
+        }
+
+        #yesButton:hover {
+            transform: scale(1.1);
+            box-shadow: 0 7px 0 #ff3366;
+        }
+
+        #noButton {
+            background: #ff99cc;
+            color: white;
+            position: absolute;
+            box-shadow: 0 5px 0 #ff66aa;
+            transition: all 0.5s ease;
+        }
+
+        #response {
+            font-size: 1.8rem;
+            color: #ff3366;
+            margin-top: 1rem;
+        }
+
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 1.5rem;
+            animation: heart-float 3s linear infinite;
+        }
+
+        @keyframes heart-float {
+            0% { transform: translateY(100vh); opacity: 1; }
+            100% { transform: translateY(-100vh); opacity: 0; }
         }
     </style>
 </head>
 <body>
-    <audio autoplay loop>
-        <source src="https://dl.sndup.net/3xmd/Die-With-a-Smile.mp3" type="audio/mp3">
-    </audio>
-    
+    <!-- Floating plushies -->
+    <div class="plushies">
+        <img src="https://i.imgur.com/6Q8TzJn.png" class="plushie" style="left:10%; top:20%">
+        <img src="https://i.imgur.com/XrWpQ7j.png" class="plushie" style="left:70%; top:60%">
+        <img src="https://i.imgur.com/4Z8Qq9z.png" class="plushie" style="left:30%; top:80%">
+    </div>
+
     <div class="container">
-        <h1>Hey Jaweria! 💖</h1>
-        <p>Will you be my Valentine? 🥺💕</p>
-        <img class="plushie" src="https://i.imgur.com/UtB3YVT.png" alt="Cute Plushie">
+        <h1>Jaweria, will you be my<br>Forever Plushie Valentine? 🧸💖</h1>
         
         <div class="buttons">
-            <button class="yes" onclick="alert('Yay! 🥰💕')">Yes 💘</button>
-            <button class="no" onmouseover="moveButton()">No 💔</button>
+            <button id="yesButton">YES! 🥰</button>
+            <button id="noButton">NO 🙈</button>
         </div>
+        <p id="response"></p>
     </div>
-    
+
+    <!-- Romantic music -->
+    <audio id="music" loop>
+        <source src="https://assets.mixkit.co/music/preview/mixkit-love-and-happiness-58.mp3" type="audio/mpeg">
+    </audio>
+
     <script>
+        // Auto-play romantic music
+        const music = document.getElementById('music');
+        music.volume = 0.3;
+        document.addEventListener('click', () => music.play(), { once: true });
+
+        // Yes button response
+        document.getElementById('yesButton').addEventListener('click', function() {
+            document.getElementById('response').innerHTML = "YAY! 🎉<br>You've stuffed my heart with love! 💞<br>Let's cuddle forever! 🧸";
+            createHearts();
+        });
+
+        // No button escape logic
+        const noButton = document.getElementById('noButton');
+        let runCount = 0;
+        
+        noButton.addEventListener('mouseover', moveButton);
+        noButton.addEventListener('click', moveButton);
+
         function moveButton() {
-            let button = document.querySelector('.no');
-            let x = Math.random() * (window.innerWidth - 100);
-            let y = Math.random() * (window.innerHeight - 50);
-            button.style.left = x + 'px';
-            button.style.top = y + 'px';
+            const container = document.querySelector('.buttons');
+            const containerRect = container.getBoundingClientRect();
+            
+            const newX = Math.random() * (containerRect.width - noButton.offsetWidth);
+            const newY = Math.random() * (containerRect.height - noButton.offsetHeight);
+            
+            noButton.style.left = `${newX}px`;
+            noButton.style.top = `${newY}px`;
+            noButton.textContent = ["Nope! 🏃♀️", "Too slow! 😜", "Catch me! 🦄", "Try again! 👀"][runCount % 4];
+            runCount++;
+        }
+
+        // Floating hearts animation
+        function createHearts() {
+            setInterval(() => {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.textContent = '💖';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 3000);
+            }, 300);
         }
     </script>
 </body>
