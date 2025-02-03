@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javed ❤️ Jaweria's Plushie Valentine</title>
+    <title>Javed ❤️ Jaweria's Perfect Valentine</title>
     <link href="https://fonts.googleapis.com/css2?family=Short+Stack&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -18,30 +18,22 @@
             overflow: hidden;
         }
 
-        /* Embedded plushie images (Base64) */
+        /* Embedded plushie images (Base64 PNG) */
         .plushie {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             position: absolute;
+            animation: float 6s infinite ease-in-out;
             background-size: contain;
             background-repeat: no-repeat;
-            animation: float 6s infinite ease-in-out;
-            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
         }
 
-        /* Teddy Bear */
         .plushie.teddy {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="60" r="40" fill="%23d67faa"/><circle cx="30" cy="40" r="10" fill="%23fff"/><circle cx="70" cy="40" r="10" fill="%23fff"/><circle cx="30" cy="40" r="5" fill="%23000"/><circle cx="70" cy="40" r="5" fill="%23000"/></svg>');
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIASURBVHgB7ZtRbsMgDEVzxv7/lztPUqVKjQ1YEF4q9ZxKJdgPPwzYkM1mMB6Px+PxeDwej8fj8Xg8Ho/H4/F4PB6Px+Px/ATbtpVt2z4a+4YH8HmKMRYVjDFuYHpYgPz5Wq/X1Yy11vJ4PKqYz+ezPB6PqgVwXddtC6C1+3a73SgBzPOMBdDa/WVZqgVwv99HLAALoKX7y7JgAbR0f71eLIDW7i/LggXQ0v11XbEAWru/LAsWQEv3t23DAmjt/rZtWACt3d/3HQugtfv7vmMBtHZ/33csgNbup5SwAFq7n1LCAqjpfvm3QABN3S8VQFP3SwXQ1P1SATR1v1QATd0vFUBT90sF0NT9UgE0db9UAE3dLxVAU/dLBdDU/VIB1HT/9XpVdf/1emEB1HT/+XxWd//5fGIB1HT/8XhUd//xeGAB1HT/fr9Xd/92u2EB1HT/er1Wd/96vWIB1HT/crlUd/9yuWAB1HT/fD5Xd/98PmMB1HT/dDpVd/90OmMB1HT/eDxWd/94PGIB1HT/cDhUd/9wOGAB1HT/9/tVd//3+2EB1HT/+/1Wd//7/WIB1HT/8/lUd//z+WAB1HT//X5Xd//9fmMB1HT/9XpVd//1emEB1HT/+XxWd//5fGIB1HT/8XhUd//xeGAB1HT/fr9Xd/9+v2MB1HT/drtVd/92u2EB1HT/er1Wd/96vWIB1HT/crlUd/9yuWAB1HT/9/tVd//3+2EB1HT/8/lUd//z+WAB1HT/9XpVd//1emEB1HT/8XhUd//xeGAB1HT/er1Wd/96vWIB1HT/crlUd/9yuWAB1HT/9/tVd//3+2EB1HT/8/lUd//z+WAB1HT/9XpVd//1emEB1HT/8XhUd//xeGAB1HT/er1Wd/96vWIB1HT/crlUd/9yuWAB1HT/9/tVd//3+2EB1HT/8/lUd//z+WAB1HT/9XpVd//1emEB1HT/8XhUd//xeGABAAAAAADwH/wBB0mIvr6T2YYAAAAASUVORK5CYII=');
         }
 
-        /* Cat Plush */
-        .plushie.cat {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 20 Q60 0 70 20 Q80 40 50 60 Q20 40 30 20 Q40 0 50 20" fill="%23ff99cc"/><circle cx="40" cy="40" r="5" fill="%23000"/><circle cx="60" cy="40" r="5" fill="%23000"/></svg>');
-        }
-
-        /* Heart Plush */
         .plushie.heart {
-            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 85 L25 60 Q20 50 30 40 L50 60 L70 40 Q80 50 75 60 Z" fill="%23ff6699"/></svg>');
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF6SURBVHgB7ZtRbsMgDEVzxv7/lztPUqVKjQ1YEF4q9ZxKJdgPPwzYkM1mMB6Px+PxeDwej8fj8Xg8Ho/H4/F4PB6Px+Px/ATbtpVt2z4a+4YH8HmKMRYVjDFuYHpYgPz5Wq/X1Yy11vJ4PKqYz+ezPB6PqgVwXddtC6C1+3a73SgBzPOMBdDa/WVZqgVwv99HLAALoKX7y7JgAbR0f71eLIDW7i/LggXQ0v11XbEAWru/LAsWQEv3t23DAmjt/rZtWACt3d/3HQugtfv7vmMBtHZ/33csgNbup5SwAFq7n1LCAqjpfvm3QABN3S8VQFP3SwXQ1P1SATR1v1QATd0vFUBT90sF0NT9UgE0db9UAE3dLxVAU/dLBdDU/VIB1HT/9XpVdf/1emEB1HT/+XxWd//5fGIB1HT/8XhUd//xeGAB1HT/fr9Xd/9+v2MB1HT/drtVd/92u2EB1HT/er1Wd/96vWIB1HT/crlUd/9yuWAB1HT/9/tVd//3+2EB1HT/8/lUd//z+WAB1HT/9XpVd//1emEB1HT/8XhUd//xeGAB1HT/er1Wd/96vWIB1HT/crlUd/9yuWAB1HT/9/tVd//3+2EB1HT/8/lUd//z+WABAAAAAADwH/wBB0mIvr6T2YYAAAAASUVORK5CYII=');
         }
 
         @keyframes float {
@@ -120,16 +112,28 @@
             0% { transform: translateY(-100vh) rotate(0deg); }
             100% { transform: translateY(100vh) rotate(360deg); }
         }
+
+        .music-notice {
+            position: fixed;
+            bottom: 20px;
+            color: #ff3366;
+            font-size: 1.2rem;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
     </style>
 </head>
 <body>
     <!-- Embedded plushies -->
     <div class="plushie teddy" style="left:10%; top:20%"></div>
-    <div class="plushie cat" style="left:70%; top:60%"></div>
-    <div class="plushie heart" style="left:30%; top:80%"></div>
+    <div class="plushie heart" style="left:70%; top:60%"></div>
 
     <div class="container">
-        <h1>Jaweria, will you be my<br>Snuggle Buddy Forever? 🧸💖</h1>
+        <h1>Jaweria, will you be my<br>Forever Valentine? 💖🧸</h1>
         
         <div class="buttons">
             <button id="yesButton">YES! 🥰</button>
@@ -138,20 +142,26 @@
         <p id="response"></p>
     </div>
 
-    <!-- Romantic piano music -->
+    <!-- Embedded romantic music (short chime demo) -->
     <audio id="music" loop>
-        <source src="https://assets.mixkit.co/music/preview/mixkit-a-very-happy-christmas-897.mp3" type="audio/mpeg">
+        <source src="data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4LjI1LjEwNAAAAAAAAAAAAAAA//tQxAADAfwBfAhMIAP/4BcwBAC9jQ1FsYXRhYgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==" type="audio/mpeg">
     </audio>
 
+    <div class="music-notice">Click anywhere to start music! 🎵</div>
+
     <script>
-        // Auto-play music
+        // Auto-play music handler
         const music = document.getElementById('music');
-        music.volume = 0.3;
-        document.addEventListener('click', () => music.play(), { once: true });
+        music.volume = 0.5;
+        
+        document.addEventListener('click', () => {
+            music.play().catch(() => {});
+            document.querySelector('.music-notice').remove();
+        }, { once: true });
 
         // Yes button response
         document.getElementById('yesButton').addEventListener('click', function() {
-            document.getElementById('response').innerHTML = "YIPPEE! 🎉<br>My heart is doing happy flips!<br>Let's build a plushie fort! 🏰🧸";
+            document.getElementById('response').innerHTML = "YAY! 🎉<br>You make my heart dance! 💃🕺<br>Let's stay cuddled forever! 🧸";
             createHearts();
         });
 
@@ -171,7 +181,7 @@
             
             noButton.style.left = `${newX}px`;
             noButton.style.top = `${newY}px`;
-            noButton.textContent = ["Nuh-uh! 🏃♀️", "Missed me! 😜", "Plushie power! 🧸", "Try harder! 💪"][runCount % 4];
+            noButton.textContent = ["Nope! 🏃♀️", "Too slow! 😜", "Catch me! 🦄", "Try again! 👀"][runCount % 4];
             runCount++;
         }
 
