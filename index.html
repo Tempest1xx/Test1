@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: 'Comic Neue', cursive;
-            background: #ffe6f0 url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="%23ff99cc" opacity="0.2"/></svg>');
+            background: #ffe6f0;
             height: 100vh;
             margin: 0;
             display: flex;
@@ -18,22 +18,35 @@
             overflow: hidden;
         }
 
-        .plushies {
+        /* Embedded plushie images (Base64) */
+        .plushie {
+            width: 100px;
+            height: 100px;
             position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: float 6s infinite ease-in-out;
+            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.1));
         }
 
-        .plushie {
-            position: absolute;
-            width: 80px;
-            animation: float 6s infinite ease-in-out;
+        /* Teddy Bear */
+        .plushie.teddy {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="60" r="40" fill="%23d67faa"/><circle cx="30" cy="40" r="10" fill="%23fff"/><circle cx="70" cy="40" r="10" fill="%23fff"/><circle cx="30" cy="40" r="5" fill="%23000"/><circle cx="70" cy="40" r="5" fill="%23000"/></svg>');
+        }
+
+        /* Cat Plush */
+        .plushie.cat {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 20 Q60 0 70 20 Q80 40 50 60 Q20 40 30 20 Q40 0 50 20" fill="%23ff99cc"/><circle cx="40" cy="40" r="5" fill="%23000"/><circle cx="60" cy="40" r="5" fill="%23000"/></svg>');
+        }
+
+        /* Heart Plush */
+        .plushie.heart {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 85 L25 60 Q20 50 30 40 L50 60 L70 40 Q80 50 75 60 Z" fill="%23ff6699"/></svg>');
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
         }
 
         .container {
@@ -96,35 +109,27 @@
             margin-top: 1rem;
         }
 
-        .hearts {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .heart {
+        /* Falling hearts animation */
+        .hearts span {
             position: absolute;
             font-size: 1.5rem;
-            animation: heart-float 3s linear infinite;
+            animation: fall 3s linear infinite;
         }
 
-        @keyframes heart-float {
-            0% { transform: translateY(100vh); opacity: 1; }
-            100% { transform: translateY(-100vh); opacity: 0; }
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
         }
     </style>
 </head>
 <body>
-    <!-- Floating plushies -->
-    <div class="plushies">
-        <img src="https://i.imgur.com/6Q8TzJn.png" class="plushie" style="left:10%; top:20%">
-        <img src="https://i.imgur.com/XrWpQ7j.png" class="plushie" style="left:70%; top:60%">
-        <img src="https://i.imgur.com/4Z8Qq9z.png" class="plushie" style="left:30%; top:80%">
-    </div>
+    <!-- Embedded plushies -->
+    <div class="plushie teddy" style="left:10%; top:20%"></div>
+    <div class="plushie cat" style="left:70%; top:60%"></div>
+    <div class="plushie heart" style="left:30%; top:80%"></div>
 
     <div class="container">
-        <h1>Jaweria, will you be my<br>Forever Plushie Valentine? 🧸💖</h1>
+        <h1>Jaweria, will you be my<br>Snuggle Buddy Forever? 🧸💖</h1>
         
         <div class="buttons">
             <button id="yesButton">YES! 🥰</button>
@@ -133,20 +138,20 @@
         <p id="response"></p>
     </div>
 
-    <!-- Romantic music -->
+    <!-- Romantic piano music -->
     <audio id="music" loop>
-        <source src="https://assets.mixkit.co/music/preview/mixkit-love-and-happiness-58.mp3" type="audio/mpeg">
+        <source src="https://assets.mixkit.co/music/preview/mixkit-a-very-happy-christmas-897.mp3" type="audio/mpeg">
     </audio>
 
     <script>
-        // Auto-play romantic music
+        // Auto-play music
         const music = document.getElementById('music');
         music.volume = 0.3;
         document.addEventListener('click', () => music.play(), { once: true });
 
         // Yes button response
         document.getElementById('yesButton').addEventListener('click', function() {
-            document.getElementById('response').innerHTML = "YAY! 🎉<br>You've stuffed my heart with love! 💞<br>Let's cuddle forever! 🧸";
+            document.getElementById('response').innerHTML = "YIPPEE! 🎉<br>My heart is doing happy flips!<br>Let's build a plushie fort! 🏰🧸";
             createHearts();
         });
 
@@ -166,15 +171,14 @@
             
             noButton.style.left = `${newX}px`;
             noButton.style.top = `${newY}px`;
-            noButton.textContent = ["Nope! 🏃♀️", "Too slow! 😜", "Catch me! 🦄", "Try again! 👀"][runCount % 4];
+            noButton.textContent = ["Nuh-uh! 🏃♀️", "Missed me! 😜", "Plushie power! 🧸", "Try harder! 💪"][runCount % 4];
             runCount++;
         }
 
-        // Floating hearts animation
+        // Falling hearts effect
         function createHearts() {
             setInterval(() => {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
+                const heart = document.createElement('span');
                 heart.style.left = Math.random() * 100 + '%';
                 heart.textContent = '💖';
                 document.body.appendChild(heart);
