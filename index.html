@@ -6,24 +6,27 @@
     <title>Be My Valentine? 💖</title>
     <style>
         body {
-            background: url('https://i.pinimg.com/originals/3b/84/cc/3b84cc376aa4cbf2f08f9ff067b707e9.jpg');
+            background: url('https://i.pinimg.com/originals/9b/6b/7d/9b6b7d0e957a3f7a527d10b5eaa28e66.gif');
             background-size: cover;
+            background-position: center;
             text-align: center;
             font-family: 'Comic Sans MS', cursive, sans-serif;
             color: #ff6b81;
+            overflow: hidden;
         }
         .container {
             margin-top: 100px;
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.9);
             padding: 20px;
             border-radius: 15px;
             display: inline-block;
+            box-shadow: 0px 0px 15px pink;
         }
         h1 {
             font-size: 30px;
         }
         .plushie {
-            width: 150px;
+            width: 200px;
             border-radius: 15px;
         }
         .buttons {
@@ -35,27 +38,33 @@
             border: none;
             border-radius: 10px;
             cursor: pointer;
+            transition: 0.3s;
         }
         .yes {
             background: pink;
             color: white;
+            box-shadow: 0px 0px 10px pink;
+        }
+        .yes:hover {
+            background: hotpink;
         }
         .no {
             background: lightgray;
             color: black;
             position: absolute;
+            transition: 0.3s ease-in-out;
         }
     </style>
 </head>
 <body>
     <audio autoplay loop>
-        <source src="romantic_music.mp3" type="audio/mp3">
+        <source src="https://www.dropbox.com/s/your-romantic-song.mp3?dl=1" type="audio/mp3">
     </audio>
     
     <div class="container">
         <h1>Hey Jaweria! 💖</h1>
         <p>Will you be my Valentine? 🥺💕</p>
-        <img class="plushie" src="https://i.pinimg.com/originals/5a/3b/8c/5a3b8c93e674c524cbb1681c468eb647.jpg" alt="Cute Plushie">
+        <img class="plushie" src="https://i.pinimg.com/originals/62/4e/b2/624eb2b5cba507e3b87ef8a91a86a81b.png" alt="Cute Plushie">
         
         <div class="buttons">
             <button class="yes" onclick="alert('Yay! 🥰💕')">Yes 💘</button>
@@ -74,3 +83,4 @@
     </script>
 </body>
 </html>
+
