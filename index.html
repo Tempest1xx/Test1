@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javed ❤️ Jaweria's Perfect Valentine</title>
-    <link href="https://fonts.googleapis.com/css2?family=Short+Stack&family=Comic+Neue:wght@700&display=swap" rel="stylesheet>
+    <title>Javed ❤️ Jaweria's Valentine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Short+Stack&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
     <style>
+        /* Base styles */
         body {
             font-family: 'Comic Neue', cursive;
             background: #ffe6f0;
@@ -18,7 +19,7 @@
             overflow: hidden;
         }
 
-        /* Background hearts */
+        /* Background elements */
         .hearts {
             position: absolute;
             width: 100%;
@@ -34,80 +35,141 @@
             animation: float 8s linear infinite;
         }
 
-        @keyframes float {
-            0% { 
-                transform: translate(-50%, 100vh) rotate(0deg);
-                opacity: 0; 
-            }
-            50% { 
-                opacity: 0.4; 
-            }
-            100% { 
-                transform: translate(50vw, -100vh) rotate(360deg);
-                opacity: 0; 
-            }
-        }
-
-        /* Enhanced button movement */
-        #noButton {
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-        }
-
-        .container {
-            position: relative;
+        /* Plushie styling */
+        .plushie {
+            width: 120px;
+            height: 120px;
+            position: absolute;
+            animation: float 6s infinite ease-in-out;
+            background-size: contain;
+            background-repeat: no-repeat;
             z-index: 2;
+        }
+
+        .plushie.teddy {
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIASURBVHgB7ZtRbsMgDEVzxv7/lztPUqVKjQ1YEF4q9ZxKJdgPPwzYkM1mMB6Px+PxeDwej8fj8Xg8Ho/H4/F4PB6Px+Px/ATbtpVt2z4a+4YH8HmKMRYVjDFuYHpYgPz5Wq/X1Yy11vJ4PKqYz+ezPB6PqgVwXddtC6C1+3a73SgBzPOMBdDa/WVZqgVwv99HLAALoKX7y7JgAbR0f71eLIDW7i/LggXQ0v11XbEAWru/LAsWQEv3t23DAmjt/rZtWACt3d/3HQugtfv7vmMBtHZ/33csgNbup5SwAFq7n1LCAqjpfvm3QABN3S8VQFP3SwXQ1P1SATR1v1QATd0vFUBT90sF0NT9UgE0db9UAE3dLxVAU/dLBdDU/VIB1HT/9XpVdf/1emEB1HT/+XxWd//5fGIB1HT/8XhUd//xeGAB1HT/fr9Xd/9+v2MB1HT/drtVd/92u2EB1HT/er1Wd/96vWIB1HT/crlUd/9yuWAB1HT/9/tVd//3+2EB1HT/8/lUd//z+WAB1HT/9XpVd//1emEB1HT/8XhUd//xeGAB1HT/er1Wd/96vWIB1HT/crlUd/9yuWAB1HT/9/tVd//3+2EB1HT/8/lUd//z+WABAAAAAADwH/wBB0mIvr6T2YYAAAAASUVORK5CYII=');
+        }
+
+        .plushie.heart {
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAF6SURBVHgB7ZtRbsMgDEVzxv7/lztPUqVKjQ1YEF4q9ZxKJdgPPwzYkM1mMB6Px+PxeDwej8fj8Xg8Ho/H4/F4PB6Px+Px/ATbtpVt2z4a+4YH8HmKMRYVjDFuYHpYgPz5Wq/X1Yy11vJ4PKqYz+ezPB6PqgVwXddtC6C1+3a73SgBzPOMBdDa/WVZqgVwv99HLAALoKX7y7JgAbR0f71eLIDW7i/LggXQ0v11XbEAWru/LAsWQEv3t23DAmjt/rZtWACt3d/3HQugtfv7vmMBtHZ/33csgNbup5SwAFq7n1LCAqjpfvm3QABN3S8VQFP3SwXQ1P1SATR1v1QATd0vFUBT90sF0NT9UgE0db9UAE3dLxVAU/dLBdDU/VIB1HT/9XpVdf/1emEB1HT/+XxWd//5fGIB1HT/8XhUd//xeGAB1HT/fr9Xd/9+v2MB1HT/drtVd/92u2EB1HT/er1Wd/96vWIB1HT/crlUd/9yuWAB1HT/9/tVd//3+2EB1HT/8/lUd//z+WAB1HT/9XpVd//1emEB1HT/8XhUd//xeGAB1HT/er1Wd/96vWIB1HT/crlUd/9yuWAB1HT/9/tVd//3+2EB1HT/8/lUd//z+WABAAAAAADwH/wBB0mIvr6T2YYAAAAASUVORK5CYII=');
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        @keyframes heart-float {
+            0% { transform: translate(-50%, 100vh) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.4; }
+            100% { transform: translate(50vw, -100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Main container */
+        .container {
             background: rgba(255, 255, 255, 0.95);
             padding: 2rem;
             border-radius: 20px;
             box-shadow: 0 0 30px rgba(255, 153, 204, 0.5);
+            text-align: center;
+            position: relative;
+            z-index: 3;
             border: 3px solid #ff99cc;
         }
 
-        /* Keep previous styles for other elements */
-        /* ... (same as before) ... */
+        /* Text styling */
+        h1 {
+            color: #ff6699;
+            font-family: 'Short Stack', cursive;
+            font-size: 2.5rem;
+            margin: 1rem 0;
+            text-shadow: 2px 2px 0px #ffffff;
+        }
+
+        /* Buttons styling */
+        .buttons {
+            margin: 2rem 0;
+            position: relative;
+            min-height: 60px;
+        }
+
+        button {
+            font-size: 1.5rem;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Comic Neue', cursive;
+        }
+
+        #yesButton {
+            background: #ff6699;
+            color: white;
+            box-shadow: 0 5px 0 #ff3366;
+        }
+
+        #yesButton:hover {
+            transform: scale(1.1);
+            box-shadow: 0 7px 0 #ff3366;
+        }
+
+        #noButton {
+            background: #ff99cc;
+            color: white;
+            position: absolute;
+            box-shadow: 0 5px 0 #ff66aa;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Response message */
+        #response {
+            font-size: 1.8rem;
+            color: #ff3366;
+            margin-top: 1rem;
+        }
+
+        /* Music notification */
+        .music-notice {
+            position: fixed;
+            bottom: 20px;
+            color: #ff3366;
+            font-size: 1.2rem;
+            animation: pulse 1s infinite;
+            z-index: 4;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
     </style>
 </head>
 <body>
+    <!-- Background elements -->
     <div class="hearts" id="heartsContainer"></div>
-    
-    <!-- Rest of container content -->
-    <!-- ... (same as before) ... -->
+    <div class="plushie teddy" style="left:10%; top:20%"></div>
+    <div class="plushie heart" style="left:70%; top:60%"></div>
+
+    <!-- Main content -->
+    <div class="container">
+        <h1>Jaweria, will you be my<br>Forever Valentine? 💖🧸</h1>
+        
+        <div class="buttons">
+            <button id="yesButton">YES! 🥰</button>
+            <button id="noButton">NO 🙈</button>
+        </div>
+        <p id="response"></p>
+    </div>
+
+    <div class="music-notice">Click anywhere to start music! 🎵</div>
 
     <script>
-        // Enhanced button movement logic
-        let moveCount = 0;
-        const escapePhrases = ["Nope! ✨", "Too slow! 🐢", "Catch me! 🏃♀️", "Try harder! 💪"];
-        
-        function superMoveButton() {
-            const button = document.getElementById('noButton');
-            const container = button.parentElement;
-            const containerRect = container.getBoundingClientRect();
-
-            // More aggressive movement
-            const maxX = containerRect.width - button.offsetWidth;
-            const maxY = containerRect.height - button.offsetHeight;
-            
-            // Random position with momentum
-            const newX = Math.random() * maxX * 1.2 - (maxX * 0.1);
-            const newY = Math.random() * maxY * 1.2 - (maxY * 0.1);
-
-            // Add rotation and scale effects
-            button.style.transform = `
-                translate(${newX}px, ${newY}px) 
-                rotate(${Math.random() * 25 - 12.5}deg)
-                scale(${0.9 + Math.random() * 0.2})
-            `;
-            
-            button.textContent = escapePhrases[moveCount % escapePhrases.length];
-            moveCount++;
-        }
-
-        // Background hearts generator
+        // Initialize background hearts
         function createHearts() {
             const heartsContainer = document.getElementById('heartsContainer');
-            const heartCount = 30;
-            
-            for(let i = 0; i < heartCount; i++) {
+            for(let i = 0; i < 20; i++) {
                 const heart = document.createElement('div');
                 heart.className = 'heart';
                 heart.style.left = Math.random() * 100 + '%';
@@ -117,24 +179,47 @@
             }
         }
 
+        // Enhanced button movement
+        let moveCount = 0;
+        const escapePhrases = ["Nope! ✨", "Too slow! 🐢", "Catch me! 🏃♀️", "Try harder! 💪"];
+        
+        function moveButton() {
+            const button = document.getElementById('noButton');
+            const container = button.parentElement;
+            const containerRect = container.getBoundingClientRect();
+
+            const newX = Math.random() * (containerRect.width - button.offsetWidth);
+            const newY = Math.random() * (containerRect.height - button.offsetHeight);
+
+            button.style.transform = `
+                translate(${newX}px, ${newY}px)
+                rotate(${Math.random() * 25 - 12.5}deg)
+            `;
+            button.textContent = escapePhrases[moveCount % escapePhrases.length];
+            moveCount++;
+        }
+
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            // Create background hearts immediately
             createHearts();
             
-            // Enhanced event listeners for button
             const noButton = document.getElementById('noButton');
-            noButton.addEventListener('mouseenter', superMoveButton);
-            noButton.addEventListener('click', superMoveButton);
-            
-            // More sensitive movement
-            noButton.addEventListener('mousemove', (e) => {
-                if(Math.random() > 0.7) superMoveButton();
-            });
+            noButton.addEventListener('mouseenter', moveButton);
+            noButton.addEventListener('click', moveButton);
         });
 
-        // Keep other functionality same
-        // ... (music and yes button logic) ...
+        // Music functionality
+        const music = new Audio('data:audio/mpeg;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4LjI1LjEwNAAAAAAAAAAAAAAA//tQxAADAfwBfAhMIAP/4BcwBAC9jQ1FsYXRhYgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==');
+        music.volume = 0.5;
+        document.addEventListener('click', () => {
+            music.play();
+            document.querySelector('.music-notice').remove();
+        }, { once: true });
+
+        // Yes button response
+        document.getElementById('yesButton').addEventListener('click', function() {
+            document.getElementById('response').innerHTML = "YAY! 🎉<br>You make my heart sparkle! ✨<br>Let's be happy forever! 💞";
+        });
     </script>
 </body>
 </html>
