@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javed ❤️ Jaweria - Valentine's Day</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Chewy&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #ff9eb5;
+            --red: #ff6b6b;
+            --heart: #ff3f3f;
+        }
+
+        body {
+            font-family: 'Pacifico', cursive;
+            background: linear-gradient(135deg, #ffd1dc, #ff9eb5);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Floating elements */
+        .floating-heart {
+            position: absolute;
+            font-size: 30px;
+            animation: float 8s linear infinite;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .floating-strawberry {
+            position: absolute;
+            font-size: 50px;
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 5px 5px rgba(255, 105, 180, 0.3));
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+        }
+
+        /* Main card */
+        .valentine-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.2);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            border: 3px solid var(--red);
+            max-width: 500px;
+        }
+
+        h1 {
+            color: var(--red);
+            font-size: 2.5em;
+            margin: 0 0 1rem 0;
+            text-shadow: 2px 2px 0px white;
+        }
+
+        .message {
+            font-size: 1.3em;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .buttons {
+            position: relative;
+            min-height: 100px;
+            margin: 2rem 0;
+        }
+
+        /* Yes button */
+        #yesBtn {
+            font-family: 'Chewy', cursive;
+            font-size: 1.5em;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(45deg, var(--red), var(--pink));
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+        }
+
+        #yesBtn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+        }
+
+        /* No button */
+        #noBtn {
+            position: absolute;
+            font-family: 'Chewy', cursive;
+            font-size: 1.5em;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(45deg, #ff99cc, #ffb6c1);
+            color: white;
+            cursor: not-allowed;
+            transition: all 0.3s ease;
+            user-select: none;
+            box-shadow: 0 5px 15px rgba(255, 153, 204, 0.3);
+        }
+
+        /* Music player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            color: var(--red);
+            font-size: 1.2em;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background elements -->
+    <div class="floating-heart" style="left:10%">💖</div>
+    <div class="floating-strawberry" style="left:20%">🍓</div>
+    <div class="floating-heart" style="left:30%">💗</div>
+    <div class="floating-strawberry" style="left:80%">🍓</div>
+
+    <!-- Main card -->
+    <div class="valentine-card">
+        <h1>Jaweria, My Sweet Valentine 🍓</h1>
+        <p class="message">
+            You're the strawberry in my milkshake,<br>
+            The sparkle in my eye,<br>
+            Will you be my Valentine?<br>
+            Let's give love a try! 💘
+        </p>
+        
+        <div class="buttons">
+            <button id="yesBtn">Yes! Forever! 💖</button>
+            <button id="noBtn">Nope! 😜</button>
+        </div>
+        
+        <div class="music-player">🎵 Click anywhere for music!</div>
+    </div>
+
+    <script>
+        // No button movement system
+        const noBtn = document.getElementById('noBtn');
+        let posX = 0, posY = 0, velX = 2, velY = 1.5;
+        const container = document.querySelector('.buttons');
+        const containerRect = container.getBoundingClientRect();
+
+        function moveButton() {
+            const buttonRect = noBtn.getBoundingClientRect();
+            
+            // Boundary check
+            if(posX + velX > containerRect.width - 150 || posX + velX < 0) velX *= -1;
+            if(posY + velY > containerRect.height - 60 || posY + velY < 0) velY *= -1;
+            
+            posX += velX;
+            posY += velY;
+            
+            noBtn.style.transform = `translate(${posX}px, ${posY}px)`;
+            
+            // Random speed changes
+            if(Math.random() < 0.1) velX *= 1.1;
+            if(Math.random() < 0.1) velY *= 1.1;
+            
+            requestAnimationFrame(moveButton);
+        }
+        moveButton();
+
+        // Make No button unclickable
+        noBtn.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+
+        // Yes button response
+        document.getElementById('yesBtn').addEventListener('click', () => {
+            // Add hearts explosion
+            for(let i = 0; i < 50; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
+                heart.textContent = '💖';
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 5000);
+            }
+            alert("🎉 Yay! You've made my heart bloom!\nLet's make every day Valentine's Day! 💞🍓");
+        });
+
+        // Music system
+        const audio = new Audio('https://assets.mixkit.co/music/preview/mixkit-romantic-christmas-679.mp3');
+        audio.loop = true;
+        document.addEventListener('click', () => {
+            audio.play().catch(() => {});
+            document.querySelector('.music-player').remove();
+        }, { once: true });
+
+        // Falling hearts animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fall {
+                0% { transform: translateY(-100vh) rotate(0deg); }
+                100% { transform: translateY(100vh) rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
